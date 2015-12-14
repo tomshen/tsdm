@@ -1,0 +1,2 @@
+# tsdm
+TypeScript definition manager
