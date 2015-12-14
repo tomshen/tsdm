@@ -1,6 +1,6 @@
 import * as commander from "commander";
 
-import { install, uninstall, TYPINGS_DIR } from "./index";
+import { install, parseTyping, uninstall, Typing, TYPINGS_DIR } from "./index";
 
 commander
     .version(require("../package").version);
@@ -9,13 +9,8 @@ commander
     .command("install <name>")
     .description(`install typings to ${TYPINGS_DIR}`)
     .action((name: string) => {
-        install(name, (err: any) => {
-            if (err) {
-                console.error(err.message);
-                return;
-            }
-            console.log(`Installed typings for ${name}`);
-        });
+        const typing = parseTyping(name);
+        install(typing);
     });
 
 commander
@@ -28,7 +23,7 @@ commander
                 console.error(err.message);
                 return;
             }
-            console.log(`Uninstalled typings for ${name}`);
+            console.log(`Uninstalled: ${name}`);
         });
     });
 

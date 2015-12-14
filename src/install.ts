@@ -4,24 +4,30 @@ import { resolve } from "path";
 import * as rimraf from "rimraf";
 
 import { downloadDefinitelyTypedTypings } from "./download";
+import { findDependencies, Typing } from "./dependency";
 
 export const TYPINGS_DIR = "typings";
 
-export function install(name: string, callback: any) {
-    downloadDefinitelyTypedTypings(name, TYPINGS_DIR, callback);
-}
-
-export function uninstall(name: string, callback: any) {
-    readdir(TYPINGS_DIR, (error, files) => {
+export function install(typing: Typing, callback?: any) {
+    callback = callback || ((err: any, typing: Typing) => {
+        if (err) {
+            console.error(err.message);
+            return;
+        }
+        console.log(`Installed: ${typing.packageName}/${typing.fileName}`);
+    });
+    downloadDefinitelyTypedTypings(typing, TYPINGS_DIR, (error, typing?, body?) => {
         if (error) {
             callback(error);
             return;
         }
-        const index = files.indexOf(name);
-        if (index === -1) {
-            callback(null);
-            return;
-        }
-        rimraf(resolve(TYPINGS_DIR, files[index]), callback);
+        callback(null, typing);
+        findDependencies(body, typing.packageName).forEach((typing) => {
+            install(typing, callback);
+        });
     });
+}
+
+export function uninstall(name: string, callback: any) {
+    rimraf(resolve(TYPINGS_DIR, name), callback);
 }

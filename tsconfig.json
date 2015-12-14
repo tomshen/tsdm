@@ -17,6 +17,7 @@
         "typings/request/request.d.ts",
         "typings/rimraf/rimraf.d.ts",
         "src/cli.ts",
+        "src/dependency.ts",
         "src/download.ts",
         "src/index.ts",
         "src/install.ts"
