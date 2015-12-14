@@ -23,4 +23,38 @@ Generate a [GitHub personal access token](https://github.com/settings/tokens) (`
 
 ```sh
 > tsdm install plottable
+Installed: plottable/plottable.d.ts
+Installed: d3/d3.d.ts
+
+> tree
+.
+└── typings
+    ├── d3
+    │   └── d3.d.ts
+    └── plottable
+        └── plottable.d.ts
+
+3 directories, 2 files
+
+> tsdm install react-redux
+Installed: react-redux/react-redux.d.ts
+Installed: redux/redux.d.ts
+Installed: react/react.d.ts
+
+> tsdm uninstall plottable
+Uninstalled: plottable
+
+> tree
+.
+└── typings
+    ├── d3
+    │   └── d3.d.ts
+    ├── react
+    │   └── react.d.ts
+    ├── react-redux
+    │   └── react-redux.d.ts
+    └── redux
+        └── redux.d.ts
+
+6 directories, 5 files
 ```
