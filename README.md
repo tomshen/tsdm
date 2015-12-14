@@ -11,6 +11,14 @@ tsdm isn't on npm yet.
 > npm link
 ```
 
+Generate a [GitHub personal access token](https://github.com/settings/tokens) (`public_repo` scope) and add a `.tsdmrc` file to your home directory to avoid GitHub rate limiting:
+
+```json
+{
+    "token": "TOKEN"
+}
+```
+
 ## Usage
 
 ```sh
