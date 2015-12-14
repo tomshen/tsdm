@@ -1,0 +1,26 @@
+{
+    "atom": {
+        "rewriteTsconfig": true
+    },
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "outDir": "./build",
+        "target": "ES5"
+    },
+    "files": [
+        "typings/commander/commander.d.ts",
+        "typings/form-data/form-data.d.ts",
+        "typings/mkdirp/mkdirp.d.ts",
+        "typings/node/node.d.ts",
+        "typings/request/request.d.ts",
+        "src/cli.ts",
+        "src/download.ts",
+        "src/index.ts"
+    ],
+    "filesGlob": [
+        "typings/**/*.d.ts",
+        "src/**/*.ts"
+    ]
+}
