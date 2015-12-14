@@ -15,9 +15,11 @@
         "typings/mkdirp/mkdirp.d.ts",
         "typings/node/node.d.ts",
         "typings/request/request.d.ts",
+        "typings/rimraf/rimraf.d.ts",
         "src/cli.ts",
         "src/download.ts",
-        "src/index.ts"
+        "src/index.ts",
+        "src/install.ts"
     ],
     "filesGlob": [
         "typings/**/*.d.ts",
