@@ -1,4 +1,3 @@
-
 const dependencyDifferentPackagePattern = /^\/\/\/\s*<reference\s+path="\.\.\/(.*)\/(.*)\.d\.ts"\s*\/>$/;
 const dependencySamePackagePattern = /^\/\/\/\s*<reference\s+path="(?:\.\/)?(.*)\.d\.ts"\s*\/>$/;
 const typingPattern = /(.*)\/(.*)(?:\.d\.ts)?/;

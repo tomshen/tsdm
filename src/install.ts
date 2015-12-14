@@ -6,7 +6,7 @@ import * as rimraf from "rimraf";
 import { downloadDefinitelyTypedTypings } from "./download";
 import { findDependencies, Typing } from "./dependency";
 
-export const TYPINGS_DIR = "typings";
+export const TYPINGS_DIR = resolve(process.cwd(), "typings");
 
 export function install(typing: Typing, callback?: any) {
     callback = callback || ((err: any, typing: Typing) => {
