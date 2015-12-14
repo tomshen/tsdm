@@ -55,7 +55,7 @@ function getDefinitelyTypedTypings(name: string, callback: (err: any, files?: st
     });
 }
 
-export function downloadDefinitelyTypedTypings(name: string, callback: (err: any)=>void) {
+export function downloadDefinitelyTypedTypings(name: string, typingsDir: string, callback: (err: any)=>void) {
     getDefinitelyTypedTypings(name, (err, files) => {
         if (err) {
             callback(err);
@@ -66,7 +66,7 @@ export function downloadDefinitelyTypedTypings(name: string, callback: (err: any
             .forEach((content: any) => {
                 const fileName = content.name;
                 const downloadUrl = content.download_url;
-                downloadFile(downloadUrl, `typings/${name}/${fileName}`, callback);
+                downloadFile(downloadUrl, `${typingsDir}/${name}/${fileName}`, callback);
             });
     });
 }

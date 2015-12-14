@@ -3,7 +3,13 @@ import { resolve } from "path";
 
 import * as rimraf from "rimraf";
 
-const TYPINGS_DIR = "typings";
+import { downloadDefinitelyTypedTypings } from "./download";
+
+export const TYPINGS_DIR = "typings";
+
+export function install(name: string, callback: any) {
+    downloadDefinitelyTypedTypings(name, TYPINGS_DIR, callback);
+}
 
 export function uninstall(name: string, callback: any) {
     readdir(TYPINGS_DIR, (error, files) => {
