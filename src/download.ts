@@ -7,6 +7,7 @@ import * as mkdirp from "mkdirp";
 import * as request from "request";
 
 import { Typing } from "./dependency";
+import { log, logError } from "./logger";
 
 function makeRequest(url: string, callback: (error: any, body?: any)=>void) {
     function handleRequestErrors(callback: (error: any, body?: any)=>void) {
@@ -36,7 +37,7 @@ function makeRequest(url: string, callback: (error: any, body?: any)=>void) {
         const tsdmrc = JSON.parse(readFileSync(resolve(homedir(), ".tsdmrc")).toString());
         headers.Authorization = `token ${tsdmrc.token}`;
     } catch (error) {
-        console.log(error);
+        logError("download", error);
     }
 
     request({

@@ -10,6 +10,7 @@
         "target": "ES5"
     },
     "files": [
+        "typings/chalk/chalk.d.ts",
         "typings/commander/commander.d.ts",
         "typings/form-data/form-data.d.ts",
         "typings/mkdirp/mkdirp.d.ts",
@@ -19,8 +20,8 @@
         "src/cli.ts",
         "src/dependency.ts",
         "src/download.ts",
-        "src/index.ts",
-        "src/install.ts"
+        "src/install.ts",
+        "src/logger.ts"
     ],
     "filesGlob": [
         "typings/**/*.d.ts",

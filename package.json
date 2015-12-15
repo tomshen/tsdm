@@ -2,7 +2,6 @@
   "name": "tsdm",
   "version": "0.1.0",
   "description": "TypeScript definition manager",
-  "main": "build/index.js",
   "bin": {
     "tsdm": "build/cli.js"
   },
@@ -27,6 +26,7 @@
   },
   "homepage": "https://github.com/tomshen/tsdm#readme",
   "dependencies": {
+    "chalk": "^1.1.1",
     "commander": "^2.9.0",
     "mkdirp": "^0.5.1",
     "request": "^2.67.0",

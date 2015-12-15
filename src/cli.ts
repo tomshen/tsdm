@@ -1,6 +1,7 @@
 import * as commander from "commander";
 
-import { install, parseTyping, uninstall, Typing, TYPINGS_DIR } from "./index";
+import { parseTyping, Typing } from "./dependency";
+import { install, uninstall, TYPINGS_DIR } from "./install";
 
 commander
     .version(require("../package").version);
@@ -19,15 +20,7 @@ commander
     .alias("remove")
     .description(`uninstall typings from ${TYPINGS_DIR}`)
     .action((name: string, otherNames: string[]) => {
-        [name, ...otherNames].forEach((name) => {
-            uninstall(name, (err: any) => {
-                if (err) {
-                    console.error(err.message);
-                    return;
-                }
-                console.log(`Uninstalled: ${name}`);
-            });
-        });
+        [name, ...otherNames].forEach(uninstall);
     });
 
 commander.parse(process.argv);
