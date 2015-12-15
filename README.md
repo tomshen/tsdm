@@ -1,4 +1,7 @@
 # tsdm
+
+**Use the [typings](https://github.com/typings/typings) definition manager instead of this.**
+
 TypeScript definition manager. Not ready for use yet.
 
 ## Installation
