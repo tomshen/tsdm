@@ -12,7 +12,22 @@ commander
     .action((name: string, otherNames: string[]) => {
         [name, ...otherNames]
             .map(parseTyping)
-            .forEach((typing) => install(typing)); // Don't pass in index, array
+            .forEach((typing) => install(typing, {
+                direct: true,
+                update: false
+            })); // Don't pass in index, array
+    });
+
+commander
+    .command("update <name> [otherNames...]")
+    .description(`update typings in ${TYPINGS_DIR}`)
+    .action((name: string, otherNames: string[]) => {
+        [name, ...otherNames]
+            .map(parseTyping)
+            .forEach((typing) => install(typing, {
+                direct: true,
+                update: true
+            })); // Don't pass in index, array
     });
 
 commander
